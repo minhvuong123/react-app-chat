@@ -1,7 +1,7 @@
 import { RegisterForm } from "../components/forms/RegisterForm";
 import { Page } from "../utils/styles";
 
-export const Authentication = () => {
+export const RegisterPage = () => {
   return (
     <Page>
       <RegisterForm />
@@ -9,4 +9,4 @@ export const Authentication = () => {
   )
 }
 
-export default Authentication;
+export default RegisterPage;

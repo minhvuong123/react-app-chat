@@ -36,6 +36,19 @@ export const Button = styled.button`
   color: #fff;
   border-radius: 10px;
   padding: 25px 0;
+  font-weight: 500;
+  transition: 500ms background-color ease;
+  &:focus {
+    cursor: pointer;
+    background-color: #4f34ff;
+  };
+  &:hover {
+    cursor: pointer;
+    background-color: #3010ff;
+  };
+  &:active {
+    background-color: #3a1cff;
+  };
 `;
 
 export const Page = styled.div`
@@ -43,5 +56,4 @@ export const Page = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
 `;

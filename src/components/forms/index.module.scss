@@ -10,6 +10,18 @@ form {
   gap: 8px;
 }
 
+.footerText {
+  margin: 14px 0;
+  text-align: center;
+  & :last-child {
+    text-decoration: underline;
+  }
+}
+
 .button {
+  margin: 8px 0;
+}
+
+.loginFormPassword {
   margin: 8px 0;
 }
