@@ -1,4 +1,7 @@
 import styled from 'styled-components';
+import { PageProps } from './styleTypes';
+
+export const SIDEBAR_WITH = 400;
 
 export const InputField = styled.input`
   font-family: 'Inter';
@@ -51,9 +54,37 @@ export const Button = styled.button`
   };
 `;
 
-export const Page = styled.div`
+export const Page = styled.div<PageProps>`
   height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: ${(props) => props.display};
+  justify-content: ${(props) => props.justifyContent};
+  align-items: ${(props) => props.alignItems};
+`;
+
+export const ConversationSideBarStyle = styled.aside`
+  background-color: #1a1a1a;
+  height: 100%;
+  width: ${SIDEBAR_WITH}px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-right: 1px solid #434242;
+
+  & header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #151515;
+    height: 100px;
+    border-bottom: 1px solid #5454543d
+    & h1 {
+      font-weight: 400;
+    }
+  }
+`;
+
+export const ConversationChannelPageStyle = styled.div`
+  height: 100%;
+  margin-left: ${SIDEBAR_WITH}px;
+  background-color: #1a1a1a;
 `;
