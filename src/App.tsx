@@ -4,6 +4,7 @@ import { LoginPage } from "./pages/LoginPage";
 import { ConversationsPage } from "./pages/ConversationsPage";
 import { ConversationChannelPage } from "./pages/ConversationChannelPage";
 import { ConversationSidebar } from "./components/conversations/ConversationSidebar";
+import mockConversations from './__mocks__/conversations';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
 function Layout() {
   return (
     <>
-      <ConversationSidebar />
+      <ConversationSidebar conversations={mockConversations} />
       <Outlet />
     </>
   )

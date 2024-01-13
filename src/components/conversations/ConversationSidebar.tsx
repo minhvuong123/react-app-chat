@@ -1,12 +1,33 @@
-import { ConversationSideBarStyle } from "../../utils/styles"
+import { ConversationSideBarStyle, ConversationSidebarContainer, ConversationSidebarHeader, ConversationSidebarItem } from "../../utils/styles"
 import { TbEdit } from 'react-icons/tb';
+import { ConversationType } from "../../utils/types";
+import { useParams } from "react-router-dom";
+import styles from './index.module.scss';
 
+type Props = {
+  conversations: ConversationType[];
+}
 
-export const ConversationSidebar = () => {
+export const ConversationSidebar: React.FC<Props> = ({ conversations }) => {
+  const { id } = useParams();
+
   return <ConversationSideBarStyle>
-    <header>
+    <ConversationSidebarHeader>
       <h1>Conversations</h1>
       <TbEdit size={32} />
-    </header>
+    </ConversationSidebarHeader>
+    <ConversationSidebarContainer>
+      {conversations.map((conversation) => {
+        return (
+          <ConversationSidebarItem>
+            <div className={styles.conversationAvatar}></div>
+            <div>
+              <span className={styles.conversationName}>{conversation.name}</span>
+              <span className={styles.conversationLastMessage}>{conversation.lastMessage}</span>
+            </div>
+          </ConversationSidebarItem>
+        )
+      })}
+    </ConversationSidebarContainer>
   </ConversationSideBarStyle>
 }

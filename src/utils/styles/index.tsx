@@ -69,22 +69,44 @@ export const ConversationSideBarStyle = styled.aside`
   top: 0;
   left: 0;
   border-right: 1px solid #434242;
-
-  & header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #151515;
-    height: 100px;
-    border-bottom: 1px solid #5454543d
-    & h1 {
-      font-weight: 400;
-    }
+  overflow: hidden;
+  overflow-y: auto;
+  &::-webkit-scrollbar {
+    display: none;
   }
 `;
+
+export const ConversationSidebarHeader = styled.header`
+  position: fixed;
+  width: ${SIDEBAR_WITH}px;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 32px;
+  background-color: #151515;
+  height: 100px;
+  border-bottom: 1px solid #5454543d
+  & h1 {
+    font-weight: 400;
+  }
+`
 
 export const ConversationChannelPageStyle = styled.div`
   height: 100%;
   margin-left: ${SIDEBAR_WITH}px;
   background-color: #1a1a1a;
+`;
+
+export const ConversationSidebarContainer = styled.div`
+  
+`;
+export const ConversationSidebarItem = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 30px;
+  border-bottom: 1px solid #5454543d;
+  background-color: #131313;
 `;
