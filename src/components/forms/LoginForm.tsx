@@ -1,13 +1,24 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, InputContainer, InputField, InputLabel } from "../../utils/styles";
 import styles from "./index.module.scss";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { UserCredentialsParams } from "../../utils/types";
+import { postLoginUser } from "../../utils/api";
+import { useState } from "react";
 
 export const LoginForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>();
+  const { register, handleSubmit, formState: { errors } } = useForm<UserCredentialsParams>();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const navigate = useNavigate();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    
+  const onSubmit: SubmitHandler<UserCredentialsParams> = async (data: UserCredentialsParams) => {
+    console.log(data);
+    try {
+      await postLoginUser(data)
+      navigate('/conversations')
+    } catch (error) {
+      console.log(error);
+    }
   }
   return (
     <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>

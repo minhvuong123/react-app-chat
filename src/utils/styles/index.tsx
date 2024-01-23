@@ -57,8 +57,8 @@ export const Button = styled.button`
 export const Page = styled.div<PageProps>`
   height: 100%;
   display: ${(props) => props.display};
-  justify-content: ${(props) => props.justifyContent};
-  align-items: ${(props) => props.alignItems};
+  justify-content: ${(props) => props.$justifyContent};
+  align-items: ${(props) => props.$justifyContent};
 `;
 
 export const ConversationSideBarStyle = styled.aside`

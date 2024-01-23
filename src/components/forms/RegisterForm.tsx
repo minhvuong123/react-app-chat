@@ -1,13 +1,20 @@
 import { Link } from "react-router-dom";
 import { Button, InputContainer, InputField, InputLabel } from "../../utils/styles";
 import styles from "./index.module.scss";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { CreateUserParams } from "../../utils/types";
+import { postRegisterUser } from "../../utils/api";
 
 export const RegisterForm = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm<FieldValues>();
+  const { register, handleSubmit, formState: { errors } } = useForm<CreateUserParams>();
 
-  const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    
+  const onSubmit: SubmitHandler<CreateUserParams> = async (data: CreateUserParams) => {
+    console.log(data);
+    try {
+      await postRegisterUser(data)
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (

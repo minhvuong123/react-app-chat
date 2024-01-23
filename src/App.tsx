@@ -5,6 +5,7 @@ import { ConversationsPage } from "./pages/ConversationsPage";
 import { ConversationChannelPage } from "./pages/ConversationChannelPage";
 import { ConversationSidebar } from "./components/conversations/ConversationSidebar";
 import mockConversations from './__mocks__/conversations';
+import { AuthenticatedRoute } from "./components/AuthenticatedRoute";
 
 function App() {
   return (
@@ -12,7 +13,11 @@ function App() {
       <Routes>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="conversations" element={<Layout />}>
+        <Route path="conversations" element={
+          <AuthenticatedRoute>
+            <Layout />
+          </AuthenticatedRoute>
+        }>
           <Route index element={<ConversationsPage />} />
           <Route path=":id" element={<ConversationChannelPage />} />
         </Route>

@@ -19,7 +19,7 @@ export const ConversationSidebar: React.FC<Props> = ({ conversations }) => {
     <ConversationSidebarContainer>
       {conversations.map((conversation) => {
         return (
-          <ConversationSidebarItem onClick={() => navigate(`/conversations/${conversation.id}`)}>
+          <ConversationSidebarItem key={conversation.id} onClick={() => navigate(`/conversations/${conversation.id}`)}>
             <div className={styles.conversationAvatar}></div>
             <div>
               <span className={styles.conversationName}>{conversation.name}</span>
