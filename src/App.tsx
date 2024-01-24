@@ -6,10 +6,14 @@ import { ConversationChannelPage } from "./pages/ConversationChannelPage";
 import { ConversationSidebar } from "./components/conversations/ConversationSidebar";
 import mockConversations from './__mocks__/conversations';
 import { AuthenticatedRoute } from "./components/AuthenticatedRoute";
+import { AuthContext } from "./utils/context/AuthContext";
+import { useState } from "react";
+import { User } from "./utils/types";
 
 function App() {
+  const [user, setUser] = useState<User>();
   return (
-    <>
+    <AuthContext.Provider value={{ user, updateAuthUser: setUser }}>
       <Routes>
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -22,7 +26,7 @@ function App() {
           <Route path=":id" element={<ConversationChannelPage />} />
         </Route>
       </Routes>
-    </>
+    </AuthContext.Provider>
   );
 }
 
