@@ -33,7 +33,7 @@ function App() {
 function Layout() {
   return (
     <>
-      <ConversationSidebar conversations={mockConversations} />
+      <ConversationSidebar conversations={[]} />
       <Outlet />
     </>
   )
